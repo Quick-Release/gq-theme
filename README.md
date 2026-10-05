@@ -19,10 +19,13 @@ WordPress administration and REST API remain available.
 
 ## Version
 
-Current version: **0.15.2**, matching the current `gq-site` package release.
-Update the `Version` header in `style.css` and this README when aligning with a
-new site release. This metadata is a release label, not automatic detection of
-the deployed frontend or a plugin version.
+Current version: **0.15.2**, from the `Version` header in `style.css`. The theme
+is versioned on its own, independently of `gq-site` and the GETQUICK plugins.
+It has no Git tags or GitHub releases and isn't published to the GETQUICK
+Composer registry, so it is installed from this repository as described above.
+To change the version, update the `Version` header in `style.css` and this
+README together. It labels this theme only; it says nothing about the deployed
+Frontend or any plugin version.
 
 ## License
 
