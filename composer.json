@@ -1,0 +1,24 @@
+{
+  "name": "getquick/gq-theme",
+  "description": "Minimal placeholder theme for GETQUICK headless WordPress sites.",
+  "type": "wordpress-theme",
+  "license": "GPL-2.0-only",
+  "require": {
+    "php": ">=8.4.1",
+    "composer/installers": "^2.0"
+  },
+  "extra": {
+    "installer-name": "gq-theme"
+  },
+  "archive": {
+    "exclude": [
+      "/*",
+      "/.*",
+      "!/index.php",
+      "!/style.css",
+      "!/composer.json",
+      "!/LICENSE",
+      "!/README.md"
+    ]
+  }
+}

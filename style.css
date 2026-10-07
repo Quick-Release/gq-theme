@@ -3,8 +3,10 @@ Theme Name: gq-theme
 Theme URI: https://getquick.io
 Author: GETQUICK
 Author URI: https://getquick.io
-Description: Placeholder theme for GETQUICK headless WordPress sites. Credits and site release version only; the frontend is served separately by gq-site.
-Version: 0.15.2
+Description: Placeholder theme for GETQUICK headless WordPress sites. Credits and theme release version only; the frontend is served separately by gq-site.
+Version: 0.1.0
+Requires at least: 7.0
+Requires PHP: 8.4.1
 License: GNU General Public License v2.0 only
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Text Domain: gq-theme

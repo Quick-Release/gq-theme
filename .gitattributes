@@ -1,0 +1,7 @@
+# Ship the same allowlist in Git/GitHub source archives as in release ZIPs.
+/* export-ignore
+/index.php -export-ignore
+/style.css -export-ignore
+/composer.json -export-ignore
+/LICENSE -export-ignore
+/README.md -export-ignore
