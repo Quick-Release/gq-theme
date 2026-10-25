@@ -143,7 +143,7 @@
     ]
   },
   "initialApplicability": {
-    "finding": "agree. Candidates are observations only, the owner statements are relayed rather than authenticated, and no range is inferred.",
+    "finding": "agree with the candidates, which are observations only; no range is inferred. One discrepancy: the bound inventory misattributes the cd6b374 owner statement (see discrepancies). Owner statements are relayed, not authenticated.",
     "candidatesAt08315f4": [
       {
         "component": "style.css (WordPress theme)",
@@ -181,10 +181,25 @@
         "source": "merged review record gq-theme-review.json blob 5bbdadf; the source pin matches"
       },
       {
-        "document": "README.md cd6b374 (current main, after #4)",
-        "describes": "0.1.0 (v0.1.0, 90ab29d); WordPress theme and Composer package",
-        "source": "gq-platform orchestration T3 session (relayed). No gq-theme record pins it and the inventory gives no source pin. It is recorded here as an observation only.",
-        "consistency": "The only change from eeb301e is the one-line #4 wording fix, and no theme code or version changed, so the statement agrees with the code. These bytes are not in the v0.1.0 ZIP, as the bundle's caveat says."
+        "document": "README.md blob cd6b3746b9df2e2ee33c07b64e8b99255bc1e4ac (current main, after #4)",
+        "describes": "commit 08315f4a0182313e3dcf41f060c731c86545c866 only; unreleased",
+        "version": null,
+        "range": null,
+        "statement": "README.md blob cd6b374 describes commit 08315f4 only and is unreleased. It is to be tied to a version at the next release. The 0.1.0 statement stays limited to eeb301e (v0.1.0, 90ab29d).",
+        "statedBy": "vvaz",
+        "statedAt": "2026-10-25",
+        "decidedAfter": "approval of bundle 4b7585b",
+        "source": "Owner correction relayed from the gq-theme session that ran the first gq-theme-review (gq-theme#2); not an authenticated approval record"
+      }
+    ],
+    "discrepancies": [
+      {
+        "location": "bundle 4b7585b inventory.json, repositories[gq-theme].initialApplicability.ownerStatements[1]",
+        "boundClaim": "vvaz stated README.md cd6b374 still describes gq-theme 0.1.0 (v0.1.0, 90ab29d) for the WordPress theme and the Composer package",
+        "actualOwnerStatement": "cd6b374 describes commit 08315f4 only, unreleased, with no version and no range (see ownerStatements[1] above)",
+        "finding": "Misattributed owner statement in the bound bytes",
+        "impact": "Owner evidence only, not approval or registry applicability, so this task's gates do not change. Nothing downstream may treat cd6b374 as 0.1.0 documentation.",
+        "requiredAction": "Correct it at the next bundle regeneration. Merging this record moves gq-theme main past 08315f4, which already requires that regeneration."
       }
     ],
     "taskTextNote": "The task's verify text still says 'Observed candidates at e1fee75' because tasks carried over unchanged. The inventory now observes the same two values at 08315f4 and adds the Composer component. Same versions, not a conflict."
