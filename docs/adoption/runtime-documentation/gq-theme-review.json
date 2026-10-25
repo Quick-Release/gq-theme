@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "agent review evidence; not owner approval, not an applicability mapping, not a review-authority record",
+  "status": "agent review evidence with owner answers relayed from the T3 session; not an authenticated approval record",
   "task": {
     "id": "gq-theme-review",
     "issue": "https://github.com/Quick-Release/gq-theme/issues/2",
@@ -120,7 +120,15 @@
           "README.md is a release file. It ships in the GitHub release ZIP, the Composer archive and Git source archives, so the bootstrap would replace the installed package's install, headless-security and release guidance.",
           "The bootstrap links to Quick-Release/gq-platform, which is private, from a public repository and package. Public readers would get a dead link.",
           "The inventory records changed replacement bytes relative to the #15 proposal. They still require provider review and exact approval before removal."
-        ]
+        ],
+        "ownerDecision": {
+          "statedBy": "vvaz",
+          "statedAt": "2026-10-25",
+          "decision": "Replace the bundle's proposed bootstrap with the revised bytes below in the regenerated bundle; still requires exact bundle approval."
+        },
+        "revisedBootstrapUtf8": "# gq-theme\n\nA blank placeholder WordPress theme for GETQUICK headless sites. Its template\ndeliberately outputs nothing; the frontend is served separately by gq-site.\nMaintained by Quick-Release.\n\nCurrent version: **0.1.0**.\n\nRequires **WordPress 7.0+** and **PHP 8.4.1+**.\n\n## Install\n\nUpload the release ZIP from GitHub Releases in **Appearance → Themes → Add New →\nUpload Theme**, or run `composer require getquick/gq-theme` against the private\nGETQUICK Composer registry.\n\nA blank theme does not restrict access: WordPress admin, REST API, feeds and\nlogin remain reachable. Configure access control separately.\n\n## Documentation\n\nFull documentation is maintained centrally in `docs/runtime/gq-theme/` of\nQuick-Release/gq-platform (GETQUICK staff access). Use the approved remote MCP\nsetup for exact version/commit applicability and current global rules. Missing\ncoverage is a gap; current text is not a latest-version fallback. Executable\nchecks and package metadata remain in this repository.\n\n## License\n\nCopyright (C) GETQUICK. GPL-2.0-only. See [LICENSE](LICENSE).\n",
+        "revisedBootstrapSha256": "b1abbbda46800a29a57096192f97176d9625a3f81a2f649280ad503ec27e8d41",
+        "revisedBootstrapPassesCheckTheme": true
       }
     }
   ],
@@ -198,7 +206,15 @@
       ]
     },
     "readmeClaimSpotChecks": "Version, WordPress/PHP minimums, release-file allowlist (scripts, .gitattributes and Composer archive), workflow triggers and release steps agree with the code at e1fee75. No inaccuracy found.",
-    "proposedForOwnerDecision": "README.md blob eeb301e describes gq-theme 0.1.0 as shipped in release v0.1.0 (90ab29d) and is byte-identical at e1fee75. Unapproved."
+    "proposedForOwnerDecision": "README.md blob eeb301e describes gq-theme 0.1.0 as shipped in release v0.1.0 (90ab29d) and is byte-identical at e1fee75. Unapproved.",
+    "ownerDecision": {
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25",
+      "approved": "README.md blob eeb301eb2009f501ce3b69aaffb8aef68a212041 (sha256 16ae0b7b…) describes gq-theme 0.1.0: tag v0.1.0, commit 90ab29d72d914f874666108bccecea4f2b6eb364, for the WordPress theme and the Composer package getquick/gq-theme.",
+      "excluded": "@getquick/gq-theme (unpublished tooling manifest)",
+      "noRange": true,
+      "caveat": "If PR #4 merges, the new README bytes describe the next release, not 0.1.0, and need their own approval in the regenerated bundle."
+    }
   },
   "holds": {
     "dispatcherDerived": {
@@ -251,7 +267,7 @@
     ],
     "teams": [],
     "dispatchSoleOwner": "vvaz (local adoption-dispatch config; per gq-platform docs/guides/adoption-dispatch.md, decided 2026-10-25)",
-    "finding": "No review requirement is enforced on gq-theme, and missing configuration is not evidence that none is required. The owner states that the authorized maintainers are vvaz and gmarquesetr, which matches the two admins. The Platform dispatch sole-owner model names only vvaz, so it does not yet reflect gmarquesetr; per adoption-dispatch.md a second human needs a new authority revision in Platform. GitHub Actions is allowed to approve pull requests, so an approving review alone is not authentic human review identity. The actual review requirement remains an owner decision.",
+    "finding": "The owner policy is: no required second-person review; vvaz and gmarquesetr are the authorized maintainers and either may push, merge, release and deploy. Enforcement now blocks force-pushes and deletion of main, makes v* tags immutable, limits v* tag creation to repository admins, and stops Actions from approving PRs. Review identity is therefore the pushing/merging maintainer's GitHub identity. Platform's dispatch sole-owner model names only vvaz and must gain gmarquesetr through a new authority revision before their merges count as verified.",
     "ownerStatement": {
       "statedBy": "vvaz",
       "statedAt": "2026-10-25",
@@ -259,15 +275,60 @@
       "authorizedMaintainers": [
         "vvaz",
         "gmarquesetr"
-      ]
+      ],
+      "reviewRequirement": "No second-person review is required. Either authorized maintainer (vvaz or gmarquesetr) may push directly to main, merge pull requests, tag releases and deploy. A change pushed or merged by an authorized maintainer is the review of record."
+    },
+    "enforcedAfterOwnerDecision": {
+      "appliedAt": "2026-10-25",
+      "appliedBy": "vvaz (gh CLI, at owner request)",
+      "rulesets": [
+        {
+          "id": 25825665,
+          "target": "branch",
+          "refs": [
+            "~DEFAULT_BRANCH"
+          ],
+          "rules": [
+            "non_fast_forward",
+            "deletion"
+          ],
+          "bypass": []
+        },
+        {
+          "id": 25825666,
+          "target": "tag",
+          "refs": [
+            "refs/tags/v*"
+          ],
+          "rules": [
+            "update",
+            "deletion"
+          ],
+          "bypass": []
+        },
+        {
+          "id": 25825669,
+          "target": "tag",
+          "refs": [
+            "refs/tags/v*"
+          ],
+          "rules": [
+            "creation"
+          ],
+          "bypass": [
+            "RepositoryRole admin (vvaz, gmarquesetr)"
+          ]
+        }
+      ],
+      "actionsCanApprovePullRequestReviews": false,
+      "codeowners": "not added; no review is required",
+      "readmeReleaseProcess": "unchanged; direct push to main stays valid"
     }
   },
   "ownerDecisions": [
-    "State the actual review requirement. Enforcing it (protection, rulesets, CODEOWNERS) is a separate operator gate.",
-    "Approve or reject the applicability of README.md (eeb301e) to gq-theme 0.1.0, and say whether the Composer component belongs in the mapping.",
-    "Decide on the bootstrap concerns: public package content and the private link.",
-    "Sequence PR #1, this PR and the README wording fix against the bound baseline: merging any of them moves gq-theme main past e1fee75.",
-    "Platform: add gmarquesetr to the review-authority model (a new authority revision) if they are to approve or merge adoption work."
+    "Sequence PR #1, this PR and PR #4 against the bound baseline: merging any of them moves gq-theme main past e1fee75 and requires a regenerated bundle.",
+    "Platform: add gmarquesetr to the review-authority model (a new authority revision), and drop 'legacy' from docs/introductions/gq-theme.md.",
+    "Regenerate the bundle with the revised bootstrap bytes and the Composer component, then approve it."
   ],
   "resolvedOwnerDecisions": [
     {
@@ -279,6 +340,24 @@
     {
       "decision": "getquick-theme wording",
       "answer": "remove 'legacy'",
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25"
+    },
+    {
+      "decision": "Review requirement",
+      "answer": "no required review; either maintainer may push, merge, release and deploy",
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25"
+    },
+    {
+      "decision": "README applicability",
+      "answer": "eeb301e → gq-theme 0.1.0 (v0.1.0, 90ab29d), WordPress theme and Composer package",
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25"
+    },
+    {
+      "decision": "Bootstrap",
+      "answer": "use the revised bootstrap (install, access warning, staff-access pointer)",
       "statedBy": "vvaz",
       "statedAt": "2026-10-25"
     }
