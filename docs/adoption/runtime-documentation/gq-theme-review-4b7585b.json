@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "status": "agent review evidence for the regenerated bundle; not an authenticated approval record",
+  "task": {
+    "id": "gq-theme-review",
+    "issue": "https://github.com/Quick-Release/gq-theme/issues/5",
+    "marker": "dbbf28fee14d2b1b05c8d17dac4541e4584f91e4b456da4f3bbac6c94db3887e",
+    "approvalId": "b6b71ef498ce07736e94d88deac3a8893343f2251f917a562956fbf87dab692c",
+    "planRevision": "4b7585b7fa06e7e86088ca17d64232feb8cf4cbc",
+    "fullPlanHash": "95f5d73cdf7158422d87ca0ff52d7cd50f43f2475e19c07a5d552a77e7948c93"
+  },
+  "previousReview": {
+    "path": "docs/adoption/runtime-documentation/gq-theme-review.json",
+    "revision": "08315f4a0182313e3dcf41f060c731c86545c866",
+    "blob": "5bbdadf2a90d8b2907cc77a4e36ddb8594fdfcb6",
+    "sha256": "48e4eb559de2e4147071073e0948e27e2811c0f9b03c74ee16eba56121dcdc07",
+    "notes": "Review of the previous bundle (eb8ff98, 854b48ca…). Kept byte-for-byte because the regenerated bundle pins it as owner evidence."
+  },
+  "reviewedAt": "2026-10-25",
+  "reviewer": {
+    "kind": "agent",
+    "description": "Claude Code session in the dedicated adoption worktree, using the vvaz GitHub CLI login for reads",
+    "authority": "none; an agent review cannot approve documents, applicability or review policy"
+  },
+  "baseline": {
+    "bundle": {
+      "fullPlanHashVerified": true,
+      "method": "sha256(SHA256SUMS) at 4b7585b equals the dispatched fullPlanHash; all six members pass sha256sum -c",
+      "manifestMembersVerified": [
+        "plan.md",
+        "plan.json",
+        "inventory.json",
+        "evidence.json",
+        "revalidation.md",
+        "revalidation.json"
+      ],
+      "approvalRecord": "Not verifiable from this session. plan.json approval is null by design (approval goes through the #211 approval application) and approvalId b6b71ef4… appears nowhere in gq-platform main. The dispatch is taken as the claim of approval, not as evidence of it."
+    },
+    "platform": {
+      "observedMain": "266f1c911cc2f231e173299e7a8ead25e88ec0e8",
+      "containsApprovedRevision": true,
+      "changesSinceRevision": "#254 and #255 (adoption tooling fixes, 2 files); no change under docs/adoption/runtime-documentation, docs/adr or docs/policy-status.json",
+      "policyPinsMatchingAtObservedMain": 12,
+      "policyPinsDrifted": 0,
+      "policyRegistryReviewedSources": []
+    },
+    "gqTheme": {
+      "observedMain": "08315f4a0182313e3dcf41f060c731c86545c866",
+      "inventoryMainCommit": "08315f4a0182313e3dcf41f060c731c86545c866",
+      "rootTree": "367d0ad85a9af6dc86a4e49b8aa3a07b2781bd17",
+      "moved": false,
+      "fileHashes": [
+        {
+          "path": "AGENTS.md",
+          "blob": "5807d90fa38349dc8c3dc18a7672646ad71c0c21",
+          "sha256": "0fa4823366c643cc138bbbf0e8e6e3025cb7f97ac8b9ed477d7596744953bfac",
+          "matchesInventory": true
+        },
+        {
+          "path": "README.md",
+          "blob": "cd6b3746b9df2e2ee33c07b64e8b99255bc1e4ac",
+          "sha256": "7dc5a4e99588d0f26d4833e94e862de1e8b3f5e23c6a1ba53ec6947ba7641e8a",
+          "matchesInventory": true
+        },
+        {
+          "path": "package.json",
+          "blob": "9f6ed1fbd8bccec7f56808f7df7b8bb4c23e19ff",
+          "sha256": "ff4b4278af066a3ce779b6198c111a14484456ba31313530967abe866223f0f2",
+          "matchesInventory": true
+        },
+        {
+          "path": "style.css",
+          "blob": "1683b30aa33121fd1e4cb9579d9fdd947188b386",
+          "sha256": "a79991750aa27bea09a88e7349d6e9c659c5f6396eaaac2d6e1b858c6fe4cb61",
+          "matchesInventory": true
+        },
+        {
+          "path": "composer.json",
+          "blob": "8f1cde4195d0880ddde9cfd7cac7c1450be66952",
+          "sha256": "a061b25285836182ab798e2137f4f590a98e54481d2778cc5386fad8bf4a8558",
+          "matchesInventory": true
+        },
+        {
+          "path": "docs/adoption/runtime-documentation/gq-theme-review.json",
+          "blob": "5bbdadf2a90d8b2907cc77a4e36ddb8594fdfcb6",
+          "sha256": "48e4eb559de2e4147071073e0948e27e2811c0f9b03c74ee16eba56121dcdc07",
+          "matchesRegenerationReviewRecord": true
+        }
+      ],
+      "pendingDriftRisks": [
+        "Merging this record moves gq-theme main past 08315f4. It adds one file and changes no inventoried bytes, but the inventory's mainCommit and source URLs stay pinned to 08315f4."
+      ]
+    }
+  },
+  "classification": {
+    "inventory": "Runtime",
+    "finding": "agree",
+    "evidence": "Unchanged from the previous review: pinned ADR 0001 Runtime row (amended 2026-10-24) lists gq-theme as the blank placeholder, distinct from the getquick-theme block theme."
+  },
+  "documentActions": [
+    {
+      "path": "AGENTS.md",
+      "inventoryAction": "retain",
+      "finding": "agree",
+      "notes": "The new bytes add only the Scope section (pointer to gq-platform ADR 0001) above the T3 orchestration bootstrap. No substantive Runtime prose."
+    },
+    {
+      "path": "README.md",
+      "inventoryAction": "split-bootstrap",
+      "destination": "docs/runtime/gq-theme/README.md",
+      "finding": "agree",
+      "centralExtraction": {
+        "sourceLines": [
+          1,
+          120
+        ],
+        "coversWholeFile": true,
+        "bytes": 5808,
+        "notes": "There is still exactly one source-relative link, [LICENSE](LICENSE) on line 120. It must become a pinned code link. There is no readme.txt to fence."
+      },
+      "headingAliases": {
+        "inventoryCount": 8,
+        "matchesCurrentHeadings": true
+      },
+      "proposedLocalBootstrap": {
+        "sha256": "b1abbbda46800a29a57096192f97176d9625a3f81a2f649280ad503ec27e8d41",
+        "bytes": 1078,
+        "matchesOwnerRevisedBootstrap": true,
+        "passesNpmRunCheck": true,
+        "notes": "Tested by temporarily writing the exact bytes to README.md and running npm run check (10/10 tests pass), then restoring the file. Installing them still waits for gq-theme-remove and its gates."
+      }
+    }
+  ],
+  "otherFiles": {
+    "unlistedProse": [],
+    "notes": "The tracked file set matches the previous review plus the merged review record under docs/adoption. That record is adoption evidence, not Runtime prose."
+  },
+  "inboundReferences": {
+    "owner": "gq-platform",
+    "unchangedAtObservedMain": [
+      "docs/decision-index.md line 117 links https://github.com/Quick-Release/gq-theme/blob/main/README.md",
+      "docs/introductions/gq-theme.md line 20 links ../../../wp-plugins/gq-theme/README.md, which resolves only in a local sibling-clone layout"
+    ]
+  },
+  "initialApplicability": {
+    "finding": "agree with the candidates, which are observations only; no range is inferred. One discrepancy: the bound inventory misattributes the cd6b374 owner statement (see discrepancies). Owner statements are relayed, not authenticated.",
+    "candidatesAt08315f4": [
+      {
+        "component": "style.css (WordPress theme)",
+        "observedVersion": "0.1.0",
+        "distributed": true
+      },
+      {
+        "component": "@getquick/gq-theme (package.json)",
+        "observedVersion": "0.1.0",
+        "distributed": false,
+        "note": "private: true; never published"
+      },
+      {
+        "component": "getquick/gq-theme (Composer)",
+        "observedVersion": null,
+        "note": "Tag-derived: v0.1.0 resolves to 90ab29d. 08315f4 is untagged and resolves as dev-main."
+      }
+    ],
+    "releaseEvidence": {
+      "tags": [
+        {
+          "name": "v0.1.0",
+          "commit": "90ab29d72d914f874666108bccecea4f2b6eb364"
+        }
+      ],
+      "releases": [
+        "v0.1.0 (2026-10-07)"
+      ],
+      "notes": "No release after v0.1.0, so README cd6b374 is not in any release ZIP. The bundle records this in its caveat."
+    },
+    "ownerStatements": [
+      {
+        "document": "README.md eeb301e",
+        "describes": "0.1.0 (v0.1.0, 90ab29d); WordPress theme and Composer package",
+        "source": "merged review record gq-theme-review.json blob 5bbdadf; the source pin matches"
+      },
+      {
+        "document": "README.md blob cd6b3746b9df2e2ee33c07b64e8b99255bc1e4ac (current main, after #4)",
+        "describes": "commit 08315f4a0182313e3dcf41f060c731c86545c866 only; unreleased",
+        "version": null,
+        "range": null,
+        "statement": "README.md blob cd6b374 describes commit 08315f4 only and is unreleased. It is to be tied to a version at the next release. The 0.1.0 statement stays limited to eeb301e (v0.1.0, 90ab29d).",
+        "statedBy": "vvaz",
+        "statedAt": "2026-10-25",
+        "decidedAfter": "approval of bundle 4b7585b",
+        "source": "Owner correction relayed from the gq-theme session that ran the first gq-theme-review (gq-theme#2); not an authenticated approval record"
+      }
+    ],
+    "discrepancies": [
+      {
+        "location": "bundle 4b7585b inventory.json, repositories[gq-theme].initialApplicability.ownerStatements[1]",
+        "boundClaim": "vvaz stated README.md cd6b374 still describes gq-theme 0.1.0 (v0.1.0, 90ab29d) for the WordPress theme and the Composer package",
+        "actualOwnerStatement": "cd6b374 describes commit 08315f4 only, unreleased, with no version and no range (see ownerStatements[1] above)",
+        "finding": "Misattributed owner statement in the bound bytes",
+        "impact": "Owner evidence only, not approval or registry applicability, so this task's gates do not change. Nothing downstream may treat cd6b374 as 0.1.0 documentation.",
+        "requiredAction": "Correct it at the next bundle regeneration. Merging this record moves gq-theme main past 08315f4, which already requires that regeneration."
+      }
+    ],
+    "taskTextNote": "The task's verify text still says 'Observed candidates at e1fee75' because tasks carried over unchanged. The inventory now observes the same two values at 08315f4 and adds the Composer component. Same versions, not a conflict."
+  },
+  "holds": {
+    "confirmedInForce": [
+      "No source deletion or bootstrap installation before gq-theme-remove, which also needs the cutover and release gates",
+      "platform-corpus-capacity gates gq-theme-stage",
+      "Policy registry reviewedSources is empty, so observed versions are not applicability",
+      "withdrawnActions and bootstrapCreates are empty for gq-theme"
+    ]
+  },
+  "reviewPolicy": {
+    "finding": "agree with the inventory's reviewRequirementEvidence. Live state matches what it observed at 2026-10-25T15:59:48Z.",
+    "observedLive": {
+      "branchProtectionMain": "none (HTTP 404)",
+      "rulesets": [
+        "25825665 ~DEFAULT_BRANCH: non_fast_forward, deletion; no bypass",
+        "25825666 refs/tags/v*: update, deletion; no bypass",
+        "25825669 refs/tags/v*: creation; RepositoryRole 5 (admin) bypass"
+      ],
+      "effectiveRulesForMain": [
+        "non_fast_forward",
+        "deletion"
+      ],
+      "collaborators": [
+        "vvaz admin",
+        "gmarquesetr admin"
+      ],
+      "actionsDefaultWorkflowPermissions": "read",
+      "actionsCanApprovePullRequestReviews": false,
+      "codeowners": "absent"
+    },
+    "authority": "From vvaz's owner statement as relayed (authorized maintainers vvaz and gmarquesetr; no required second-person review). Not authenticated, and no protected rule requires a review. Real review authority for later gates still waits on gq-theme-authority."
+  },
+  "openQuestions": []
+}
