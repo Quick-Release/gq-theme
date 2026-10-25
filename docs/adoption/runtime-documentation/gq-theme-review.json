@@ -18,7 +18,14 @@
   "baseline": {
     "bundle": {
       "fullPlanHashVerified": true,
-      "manifestMembersVerified": ["plan.md", "plan.json", "inventory.json", "evidence.json", "revalidation.md", "revalidation.json"],
+      "manifestMembersVerified": [
+        "plan.md",
+        "plan.json",
+        "inventory.json",
+        "evidence.json",
+        "revalidation.md",
+        "revalidation.json"
+      ],
       "bundleUnchangedAtPlatformMain": true
     },
     "platform": {
@@ -34,10 +41,30 @@
       "rootTree": "a67016a338766c3c98882adc68c81c4ca336b1cf",
       "moved": false,
       "fileHashes": [
-        { "path": "AGENTS.md", "blob": "338e50c34e3893f6b7164ff4f4642d4133ff8e37", "sha256": "449d4668b4c4754510f0706d971df5333f4cab1c26b7c130ed61fef066f1d5ec", "matchesInventory": true },
-        { "path": "README.md", "blob": "eeb301eb2009f501ce3b69aaffb8aef68a212041", "sha256": "16ae0b7b72528a5feb4e79c12e3537115d619cb55d009ded86fd9c91dd21a66a", "matchesInventory": true },
-        { "path": "package.json", "blob": "9f6ed1fbd8bccec7f56808f7df7b8bb4c23e19ff", "sha256": "ff4b4278af066a3ce779b6198c111a14484456ba31313530967abe866223f0f2", "matchesInventory": true },
-        { "path": "style.css", "blob": "1683b30aa33121fd1e4cb9579d9fdd947188b386", "sha256": "a79991750aa27bea09a88e7349d6e9c659c5f6396eaaac2d6e1b858c6fe4cb61", "matchesInventory": true }
+        {
+          "path": "AGENTS.md",
+          "blob": "338e50c34e3893f6b7164ff4f4642d4133ff8e37",
+          "sha256": "449d4668b4c4754510f0706d971df5333f4cab1c26b7c130ed61fef066f1d5ec",
+          "matchesInventory": true
+        },
+        {
+          "path": "README.md",
+          "blob": "eeb301eb2009f501ce3b69aaffb8aef68a212041",
+          "sha256": "16ae0b7b72528a5feb4e79c12e3537115d619cb55d009ded86fd9c91dd21a66a",
+          "matchesInventory": true
+        },
+        {
+          "path": "package.json",
+          "blob": "9f6ed1fbd8bccec7f56808f7df7b8bb4c23e19ff",
+          "sha256": "ff4b4278af066a3ce779b6198c111a14484456ba31313530967abe866223f0f2",
+          "matchesInventory": true
+        },
+        {
+          "path": "style.css",
+          "blob": "1683b30aa33121fd1e4cb9579d9fdd947188b386",
+          "sha256": "a79991750aa27bea09a88e7349d6e9c659c5f6396eaaac2d6e1b858c6fe4cb61",
+          "matchesInventory": true
+        }
       ],
       "pendingDriftRisks": [
         "Open PR #1 (claude/scope-section) adds a Scope section to AGENTS.md. Merging it changes inventoried bytes and moves main past the bound baseline."
@@ -62,7 +89,10 @@
       "destination": "docs/runtime/gq-theme/README.md",
       "finding": "agree with the central copy; the bootstrap replacement needs owner decisions before gq-theme-remove",
       "centralExtraction": {
-        "sourceLines": [1, 120],
+        "sourceLines": [
+          1,
+          120
+        ],
         "coversWholeFile": true,
         "bytes": 5811,
         "notes": [
@@ -73,7 +103,16 @@
       "headingAliases": {
         "inventoryCount": 8,
         "matchesCurrentHeadings": true,
-        "currentHeadings": ["gq-theme", "Install", "Install through the private GETQUICK registry", "Version", "Headless behavior and security", "Development and releases", "Publish a release", "License"]
+        "currentHeadings": [
+          "gq-theme",
+          "Install",
+          "Install through the private GETQUICK registry",
+          "Version",
+          "Headless behavior and security",
+          "Development and releases",
+          "Publish a release",
+          "License"
+        ]
       },
       "proposedLocalBootstrap": {
         "passesCurrentCheckTheme": true,
@@ -86,17 +125,39 @@
     }
   ],
   "otherFiles": {
-    "proseInInventory": ["AGENTS.md", "README.md"],
+    "proseInInventory": [
+      "AGENTS.md",
+      "README.md"
+    ],
     "unlistedProse": [],
-    "retainedWithCode": [".gitattributes", ".gitignore", ".github/workflows/release.yml", "LICENSE", "composer.json", "index.php", "package.json", "scripts/theme.mjs", "style.css", "tests/theme.test.mjs"]
+    "retainedWithCode": [
+      ".gitattributes",
+      ".gitignore",
+      ".github/workflows/release.yml",
+      "LICENSE",
+      "composer.json",
+      "index.php",
+      "package.json",
+      "scripts/theme.mjs",
+      "style.css",
+      "tests/theme.test.mjs"
+    ]
   },
   "inboundReferences": {
     "owner": "gq-platform; listed for gq-theme-stage and gq-theme-cutover link rewrites only",
     "items": [
-      { "path": "docs/decision-index.md", "line": 117, "target": "https://github.com/Quick-Release/gq-theme/blob/main/README.md" },
-      { "path": "docs/introductions/gq-theme.md", "target": "../../../wp-plugins/gq-theme/README.md", "note": "This relative path resolves only in a local sibling-clone layout, not on GitHub." }
+      {
+        "path": "docs/decision-index.md",
+        "line": 117,
+        "target": "https://github.com/Quick-Release/gq-theme/blob/main/README.md"
+      },
+      {
+        "path": "docs/introductions/gq-theme.md",
+        "target": "../../../wp-plugins/gq-theme/README.md",
+        "note": "This relative path resolves only in a local sibling-clone layout, not on GitHub."
+      }
     ],
-    "accuracyQuestion": "README.md and docs/introductions/gq-theme.md call getquick/getquick-theme 'legacy', while ADR 0001 lists getquick-theme as an active Runtime block theme. The owner should confirm the intended wording."
+    "accuracyQuestion": "Resolved by owner (vvaz, 2026-10-25): drop 'legacy'. getquick/getquick-theme is an active Runtime block theme per ADR 0001. The gq-theme README fix is a separate PR; the Platform intro wording is Platform-owned and is not changed here."
   },
   "initialApplicability": {
     "finding": "The inventory candidates are observations only. Neither is approved applicability, and no version range is inferred.",
@@ -125,8 +186,16 @@
       "tagCommit": "90ab29d72d914f874666108bccecea4f2b6eb364",
       "asset": "gq-theme-0.1.0.zip",
       "assetSha256": "9000e9ca6066fb6e0b3293b3eaa7cb9138148f7b9e78291b3e3da9290246f004",
-      "assetFilesIdenticalToBaseline": ["index.php", "style.css", "composer.json", "LICENSE", "README.md"],
-      "baselineDiffFromTag": ["AGENTS.md (not shipped)"]
+      "assetFilesIdenticalToBaseline": [
+        "index.php",
+        "style.css",
+        "composer.json",
+        "LICENSE",
+        "README.md"
+      ],
+      "baselineDiffFromTag": [
+        "AGENTS.md (not shipped)"
+      ]
     },
     "readmeClaimSpotChecks": "Version, WordPress/PHP minimums, release-file allowlist (scripts, .gitattributes and Composer archive), workflow triggers and release steps agree with the code at e1fee75. No inaccuracy found.",
     "proposedForOwnerDecision": "README.md blob eeb301e describes gq-theme 0.1.0 as shipped in release v0.1.0 (90ab29d) and is byte-identical at e1fee75. Unapproved."
@@ -152,26 +221,66 @@
       "effectiveRulesForMain": [],
       "organizationRulesetListing": "unreadable with the current token (needs admin:org); the effective-rules query for main returned none",
       "codeowners": "absent (CODEOWNERS, .github/CODEOWNERS, docs/CODEOWNERS)",
-      "environments": [{ "name": "copilot", "protectionRules": [] }],
+      "environments": [
+        {
+          "name": "copilot",
+          "protectionRules": []
+        }
+      ],
       "actionsDefaultWorkflowPermissions": "read",
       "actionsCanApprovePullRequestReviews": true,
-      "mergeMethods": ["merge", "squash", "rebase"],
+      "mergeMethods": [
+        "merge",
+        "squash",
+        "rebase"
+      ],
       "autoMerge": false
     },
     "documentedProcess": "README tells the releaser to commit and push to main, then tag. It defines no pull-request review step.",
     "writeCapableIdentities": [
-      { "login": "vvaz", "repositoryRole": "admin", "organizationRole": "admin" },
-      { "login": "gmarquesetr", "repositoryRole": "admin", "organizationRole": "admin" }
+      {
+        "login": "vvaz",
+        "repositoryRole": "admin",
+        "organizationRole": "admin"
+      },
+      {
+        "login": "gmarquesetr",
+        "repositoryRole": "admin",
+        "organizationRole": "admin"
+      }
     ],
     "teams": [],
     "dispatchSoleOwner": "vvaz (local adoption-dispatch config; per gq-platform docs/guides/adoption-dispatch.md, decided 2026-10-25)",
-    "finding": "No review requirement is enforced on gq-theme, and missing configuration is not evidence that none is required. The sole-owner authority model names vvaz, but gmarquesetr also holds admin and can push or merge without review. GitHub Actions is allowed to approve pull requests, so an approving review alone is not authentic human review identity. The authorized maintainers and the actual review policy remain an owner decision; this review invents neither."
+    "finding": "No review requirement is enforced on gq-theme, and missing configuration is not evidence that none is required. The owner states that the authorized maintainers are vvaz and gmarquesetr, which matches the two admins. The Platform dispatch sole-owner model names only vvaz, so it does not yet reflect gmarquesetr; per adoption-dispatch.md a second human needs a new authority revision in Platform. GitHub Actions is allowed to approve pull requests, so an approving review alone is not authentic human review identity. The actual review requirement remains an owner decision.",
+    "ownerStatement": {
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25",
+      "channel": "T3 session for this task (agent-relayed; not an authenticated approval record)",
+      "authorizedMaintainers": [
+        "vvaz",
+        "gmarquesetr"
+      ]
+    }
   },
   "ownerDecisions": [
-    "State the authorized maintainers and reviewers for gq-theme documentation and releases, including whether gmarquesetr is one.",
     "State the actual review requirement. Enforcing it (protection, rulesets, CODEOWNERS) is a separate operator gate.",
     "Approve or reject the applicability of README.md (eeb301e) to gq-theme 0.1.0, and say whether the Composer component belongs in the mapping.",
     "Decide on the bootstrap concerns: public package content and the private link.",
-    "Sequence PR #1, and this PR, against the bound baseline: merging either moves gq-theme main past e1fee75."
+    "Sequence PR #1, this PR and the README wording fix against the bound baseline: merging any of them moves gq-theme main past e1fee75.",
+    "Platform: add gmarquesetr to the review-authority model (a new authority revision) if they are to approve or merge adoption work."
+  ],
+  "resolvedOwnerDecisions": [
+    {
+      "decision": "Authorized maintainers",
+      "answer": "vvaz and gmarquesetr",
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25"
+    },
+    {
+      "decision": "getquick-theme wording",
+      "answer": "remove 'legacy'",
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25"
+    }
   ]
 }
