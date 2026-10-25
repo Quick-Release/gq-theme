@@ -1,3 +1,10 @@
+## Scope
+
+This repository is gq-theme, the placeholder WordPress theme GETQUICK headless
+sites install; a site's pages render in its Frontend, never here. Which
+repository owns what:
+[gq-platform ADR 0001](https://github.com/Quick-Release/gq-platform/blob/main/docs/adr/0001-ownership-of-work-across-getquick-repositories.md).
+
 ## Sessions and orchestration
 
 Sessions run inside T3 Code. A session started from this repository edits
