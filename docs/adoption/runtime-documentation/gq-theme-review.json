@@ -267,7 +267,7 @@
     ],
     "teams": [],
     "dispatchSoleOwner": "vvaz (local adoption-dispatch config; per gq-platform docs/guides/adoption-dispatch.md, decided 2026-10-25)",
-    "finding": "The owner policy is: no required second-person review; vvaz and gmarquesetr are the authorized maintainers and either may push, merge, release and deploy. Enforcement now blocks force-pushes and deletion of main, makes v* tags immutable, limits v* tag creation to repository admins, and stops Actions from approving PRs. Review identity is therefore the pushing/merging maintainer's GitHub identity. Platform's dispatch sole-owner model names only vvaz and must gain gmarquesetr through a new authority revision before their merges count as verified.",
+    "finding": "The owner policy is: no required second-person review; vvaz and gmarquesetr are the authorized maintainers and either may push, merge, release and deploy. Enforcement now blocks force-pushes and deletion of main, makes v* tags immutable, limits v* tag creation to repository admins, and stops Actions from approving PRs. Review identity is therefore the pushing/merging maintainer's GitHub identity. Platform's dispatch counted only the sole owner's merges as verified; gq-platform PR #251 adds a per-destination maintainers list, so gmarquesetr's merges count once it merges and the gq-theme destination lists both maintainers. Plan approval stays with vvaz.",
     "ownerStatement": {
       "statedBy": "vvaz",
       "statedAt": "2026-10-25",
@@ -327,7 +327,7 @@
   },
   "ownerDecisions": [
     "Sequence PR #1, this PR and PR #4 against the bound baseline: merging any of them moves gq-theme main past e1fee75 and requires a regenerated bundle.",
-    "Platform: add gmarquesetr to the review-authority model (a new authority revision), and drop 'legacy' from docs/introductions/gq-theme.md.",
+    "Platform: merge gq-platform #251 and add maintainers [vvaz, gmarquesetr] to the gq-theme dispatch destination; merge #252 (intro wording); regenerate draft #253 once gq-theme main is final.",
     "Regenerate the bundle with the revised bootstrap bytes and the Composer component, then approve it."
   ],
   "resolvedOwnerDecisions": [
