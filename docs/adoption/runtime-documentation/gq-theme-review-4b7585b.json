@@ -174,6 +174,19 @@
       ],
       "notes": "No release after v0.1.0, so README cd6b374 is not in any release ZIP. The bundle records this in its caveat."
     },
+    "ownerStatements": [
+      {
+        "document": "README.md eeb301e",
+        "describes": "0.1.0 (v0.1.0, 90ab29d); WordPress theme and Composer package",
+        "source": "merged review record gq-theme-review.json blob 5bbdadf; the source pin matches"
+      },
+      {
+        "document": "README.md cd6b374 (current main, after #4)",
+        "describes": "0.1.0 (v0.1.0, 90ab29d); WordPress theme and Composer package",
+        "source": "gq-platform orchestration T3 session (relayed). No gq-theme record pins it and the inventory gives no source pin. It is recorded here as an observation only.",
+        "consistency": "The only change from eeb301e is the one-line #4 wording fix, and no theme code or version changed, so the statement agrees with the code. These bytes are not in the v0.1.0 ZIP, as the bundle's caveat says."
+      }
+    ],
     "taskTextNote": "The task's verify text still says 'Observed candidates at e1fee75' because tasks carried over unchanged. The inventory now observes the same two values at 08315f4 and adds the Composer component. Same versions, not a conflict."
   },
   "holds": {
