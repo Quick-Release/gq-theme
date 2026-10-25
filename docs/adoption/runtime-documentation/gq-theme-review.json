@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "status": "agent review evidence with owner answers relayed from the T3 session; not an authenticated approval record",
+  "task": {
+    "id": "gq-theme-review",
+    "issue": "https://github.com/Quick-Release/gq-theme/issues/2",
+    "marker": "32365d8c0b15c8348b27fefa1feaeb3ced51de5ac738a43c9dde9f708957d1be",
+    "approvalId": "3b1bae0d74765d919f808c4a7903efd8fd0605e85aa2a3b5280c9dc5f68e3c99",
+    "planRevision": "eb8ff9865884801e9c8ffcc055ecb62e7e0a84a5",
+    "fullPlanHash": "854b48ca34c9ef3d228fdc0740ee610e63d54f884d1c74fbd4f981ea065d46f9"
+  },
+  "reviewedAt": "2026-10-25T15:20:42Z",
+  "reviewer": {
+    "kind": "agent",
+    "description": "Claude Code session in the dedicated adoption worktree, using the vvaz GitHub CLI login for reads",
+    "authority": "none; an agent review cannot approve documents, applicability or review policy"
+  },
+  "baseline": {
+    "bundle": {
+      "fullPlanHashVerified": true,
+      "manifestMembersVerified": [
+        "plan.md",
+        "plan.json",
+        "inventory.json",
+        "evidence.json",
+        "revalidation.md",
+        "revalidation.json"
+      ],
+      "bundleUnchangedAtPlatformMain": true
+    },
+    "platform": {
+      "observedMain": "5c7cc0be0590aeb82ac9b312bab30122c6e7076b",
+      "containsApprovedRevision": true,
+      "policyPinsMatchingAtObservedMain": 12,
+      "policyPinsDrifted": 0,
+      "unpinnedAdrs": []
+    },
+    "gqTheme": {
+      "observedMain": "e1fee7597716a77758d833c1866f13410bf318c4",
+      "boundMain": "e1fee7597716a77758d833c1866f13410bf318c4",
+      "rootTree": "a67016a338766c3c98882adc68c81c4ca336b1cf",
+      "moved": false,
+      "fileHashes": [
+        {
+          "path": "AGENTS.md",
+          "blob": "338e50c34e3893f6b7164ff4f4642d4133ff8e37",
+          "sha256": "449d4668b4c4754510f0706d971df5333f4cab1c26b7c130ed61fef066f1d5ec",
+          "matchesInventory": true
+        },
+        {
+          "path": "README.md",
+          "blob": "eeb301eb2009f501ce3b69aaffb8aef68a212041",
+          "sha256": "16ae0b7b72528a5feb4e79c12e3537115d619cb55d009ded86fd9c91dd21a66a",
+          "matchesInventory": true
+        },
+        {
+          "path": "package.json",
+          "blob": "9f6ed1fbd8bccec7f56808f7df7b8bb4c23e19ff",
+          "sha256": "ff4b4278af066a3ce779b6198c111a14484456ba31313530967abe866223f0f2",
+          "matchesInventory": true
+        },
+        {
+          "path": "style.css",
+          "blob": "1683b30aa33121fd1e4cb9579d9fdd947188b386",
+          "sha256": "a79991750aa27bea09a88e7349d6e9c659c5f6396eaaac2d6e1b858c6fe4cb61",
+          "matchesInventory": true
+        }
+      ],
+      "pendingDriftRisks": [
+        "Open PR #1 (claude/scope-section) adds a Scope section to AGENTS.md. Merging it changes inventoried bytes and moves main past the bound baseline."
+      ]
+    }
+  },
+  "classification": {
+    "inventory": "Runtime",
+    "finding": "agree",
+    "evidence": "Pinned ADR 0001 Runtime row lists gq-theme; its 2026-10-24 amendment distinguishes the blank gq-theme placeholder from the getquick-theme block theme."
+  },
+  "documentActions": [
+    {
+      "path": "AGENTS.md",
+      "inventoryAction": "retain",
+      "finding": "agree",
+      "notes": "AGENTS.md contains only the T3 session-orchestration bootstrap and no substantive Runtime prose."
+    },
+    {
+      "path": "README.md",
+      "inventoryAction": "split-bootstrap",
+      "destination": "docs/runtime/gq-theme/README.md",
+      "finding": "agree with the central copy; the bootstrap replacement needs owner decisions before gq-theme-remove",
+      "centralExtraction": {
+        "sourceLines": [
+          1,
+          120
+        ],
+        "coversWholeFile": true,
+        "bytes": 5811,
+        "notes": [
+          "The transform text mentions fencing readme.txt. gq-theme has no readme.txt, so for this owner the transform is the exact README.md bytes plus link translation.",
+          "Only one source-relative link exists: [LICENSE](LICENSE) on line 120. It must become a pinned code link to gq-theme LICENSE because LICENSE stays with code. All other links are absolute."
+        ]
+      },
+      "headingAliases": {
+        "inventoryCount": 8,
+        "matchesCurrentHeadings": true,
+        "currentHeadings": [
+          "gq-theme",
+          "Install",
+          "Install through the private GETQUICK registry",
+          "Version",
+          "Headless behavior and security",
+          "Development and releases",
+          "Publish a release",
+          "License"
+        ]
+      },
+      "proposedLocalBootstrap": {
+        "passesCurrentCheckTheme": true,
+        "ownerDecisionsRequired": [
+          "README.md is a release file. It ships in the GitHub release ZIP, the Composer archive and Git source archives, so the bootstrap would replace the installed package's install, headless-security and release guidance.",
+          "The bootstrap links to Quick-Release/gq-platform, which is private, from a public repository and package. Public readers would get a dead link.",
+          "The inventory records changed replacement bytes relative to the #15 proposal. They still require provider review and exact approval before removal."
+        ],
+        "ownerDecision": {
+          "statedBy": "vvaz",
+          "statedAt": "2026-10-25",
+          "decision": "Replace the bundle's proposed bootstrap with the revised bytes below in the regenerated bundle; still requires exact bundle approval."
+        },
+        "revisedBootstrapUtf8": "# gq-theme\n\nA blank placeholder WordPress theme for GETQUICK headless sites. Its template\ndeliberately outputs nothing; the frontend is served separately by gq-site.\nMaintained by Quick-Release.\n\nCurrent version: **0.1.0**.\n\nRequires **WordPress 7.0+** and **PHP 8.4.1+**.\n\n## Install\n\nUpload the release ZIP from GitHub Releases in **Appearance → Themes → Add New →\nUpload Theme**, or run `composer require getquick/gq-theme` against the private\nGETQUICK Composer registry.\n\nA blank theme does not restrict access: WordPress admin, REST API, feeds and\nlogin remain reachable. Configure access control separately.\n\n## Documentation\n\nFull documentation is maintained centrally in `docs/runtime/gq-theme/` of\nQuick-Release/gq-platform (GETQUICK staff access). Use the approved remote MCP\nsetup for exact version/commit applicability and current global rules. Missing\ncoverage is a gap; current text is not a latest-version fallback. Executable\nchecks and package metadata remain in this repository.\n\n## License\n\nCopyright (C) GETQUICK. GPL-2.0-only. See [LICENSE](LICENSE).\n",
+        "revisedBootstrapSha256": "b1abbbda46800a29a57096192f97176d9625a3f81a2f649280ad503ec27e8d41",
+        "revisedBootstrapPassesCheckTheme": true
+      }
+    }
+  ],
+  "otherFiles": {
+    "proseInInventory": [
+      "AGENTS.md",
+      "README.md"
+    ],
+    "unlistedProse": [],
+    "retainedWithCode": [
+      ".gitattributes",
+      ".gitignore",
+      ".github/workflows/release.yml",
+      "LICENSE",
+      "composer.json",
+      "index.php",
+      "package.json",
+      "scripts/theme.mjs",
+      "style.css",
+      "tests/theme.test.mjs"
+    ]
+  },
+  "inboundReferences": {
+    "owner": "gq-platform; listed for gq-theme-stage and gq-theme-cutover link rewrites only",
+    "items": [
+      {
+        "path": "docs/decision-index.md",
+        "line": 117,
+        "target": "https://github.com/Quick-Release/gq-theme/blob/main/README.md"
+      },
+      {
+        "path": "docs/introductions/gq-theme.md",
+        "target": "../../../wp-plugins/gq-theme/README.md",
+        "note": "This relative path resolves only in a local sibling-clone layout, not on GitHub."
+      }
+    ],
+    "accuracyQuestion": "Resolved by owner (vvaz, 2026-10-25): drop 'legacy'. getquick/getquick-theme is an active Runtime block theme per ADR 0001. The gq-theme README fix is a separate PR; the Platform intro wording is Platform-owned and is not changed here."
+  },
+  "initialApplicability": {
+    "finding": "The inventory candidates are observations only. Neither is approved applicability, and no version range is inferred.",
+    "components": [
+      {
+        "component": "gq-theme WordPress theme (style.css Version header)",
+        "observedVersion": "0.1.0",
+        "atCommit": "e1fee7597716a77758d833c1866f13410bf318c4",
+        "distributed": true
+      },
+      {
+        "component": "@getquick/gq-theme (package.json)",
+        "observedVersion": "0.1.0",
+        "atCommit": "e1fee7597716a77758d833c1866f13410bf318c4",
+        "distributed": false,
+        "note": "The manifest is private: true and is never published. It holds tooling metadata whose version is kept equal to style.css by scripts/theme.mjs."
+      },
+      {
+        "component": "getquick/gq-theme (Composer)",
+        "missingFromInventory": true,
+        "note": "composer.json omits a version, so Composer infers it from tags. Tag v0.1.0 resolves to commit 90ab29d72d914f874666108bccecea4f2b6eb364. e1fee75 is untagged, so Composer sees it as dev-main, not 0.1.0."
+      }
+    ],
+    "releaseEvidence": {
+      "tag": "v0.1.0",
+      "tagCommit": "90ab29d72d914f874666108bccecea4f2b6eb364",
+      "asset": "gq-theme-0.1.0.zip",
+      "assetSha256": "9000e9ca6066fb6e0b3293b3eaa7cb9138148f7b9e78291b3e3da9290246f004",
+      "assetFilesIdenticalToBaseline": [
+        "index.php",
+        "style.css",
+        "composer.json",
+        "LICENSE",
+        "README.md"
+      ],
+      "baselineDiffFromTag": [
+        "AGENTS.md (not shipped)"
+      ]
+    },
+    "readmeClaimSpotChecks": "Version, WordPress/PHP minimums, release-file allowlist (scripts, .gitattributes and Composer archive), workflow triggers and release steps agree with the code at e1fee75. No inaccuracy found.",
+    "proposedForOwnerDecision": "README.md blob eeb301e describes gq-theme 0.1.0 as shipped in release v0.1.0 (90ab29d) and is byte-identical at e1fee75. Unapproved.",
+    "ownerDecision": {
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25",
+      "approved": "README.md blob eeb301eb2009f501ce3b69aaffb8aef68a212041 (sha256 16ae0b7b…) describes gq-theme 0.1.0: tag v0.1.0, commit 90ab29d72d914f874666108bccecea4f2b6eb364, for the WordPress theme and the Composer package getquick/gq-theme.",
+      "excluded": "@getquick/gq-theme (unpublished tooling manifest)",
+      "noRange": true,
+      "caveat": "If PR #4 merges, the new README bytes describe the next release, not 0.1.0, and need their own approval in the regenerated bundle."
+    }
+  },
+  "holds": {
+    "dispatcherDerived": {
+      "bootstrapGate": "none on gq-theme files",
+      "registrationGate": "none (gq-theme is in the curated corpus)",
+      "withdrawnActions": [],
+      "bootstrapCreates": []
+    },
+    "stillInForceAndNotDischargedByThisReview": [
+      "No source deletion or bootstrap installation until the exact replacement bytes are provider-reviewed and approved, and the cutover and release gates pass",
+      "platform-corpus-capacity gates gq-theme-stage",
+      "Policy registry (docs/policy-status.json reviewedSources) is empty; observed versions are not applicability",
+      "Actual protected review requirements and review authority are unresolved (see reviewPolicy)"
+    ]
+  },
+  "reviewPolicy": {
+    "enforced": {
+      "branchProtectionMain": "none (HTTP 404 'Branch not protected'; branches/main protected=false)",
+      "rulesetsIncludingParents": [],
+      "effectiveRulesForMain": [],
+      "organizationRulesetListing": "unreadable with the current token (needs admin:org); the effective-rules query for main returned none",
+      "codeowners": "absent (CODEOWNERS, .github/CODEOWNERS, docs/CODEOWNERS)",
+      "environments": [
+        {
+          "name": "copilot",
+          "protectionRules": []
+        }
+      ],
+      "actionsDefaultWorkflowPermissions": "read",
+      "actionsCanApprovePullRequestReviews": true,
+      "mergeMethods": [
+        "merge",
+        "squash",
+        "rebase"
+      ],
+      "autoMerge": false
+    },
+    "documentedProcess": "README tells the releaser to commit and push to main, then tag. It defines no pull-request review step.",
+    "writeCapableIdentities": [
+      {
+        "login": "vvaz",
+        "repositoryRole": "admin",
+        "organizationRole": "admin"
+      },
+      {
+        "login": "gmarquesetr",
+        "repositoryRole": "admin",
+        "organizationRole": "admin"
+      }
+    ],
+    "teams": [],
+    "dispatchSoleOwner": "vvaz (local adoption-dispatch config; per gq-platform docs/guides/adoption-dispatch.md, decided 2026-10-25)",
+    "finding": "The owner policy is: no required second-person review; vvaz and gmarquesetr are the authorized maintainers and either may push, merge, release and deploy. Enforcement now blocks force-pushes and deletion of main, makes v* tags immutable, limits v* tag creation to repository admins, and stops Actions from approving PRs. Review identity is therefore the pushing/merging maintainer's GitHub identity. Platform's dispatch counted only the sole owner's merges as verified; gq-platform PR #251 adds a per-destination maintainers list, so gmarquesetr's merges count once it merges and the gq-theme destination lists both maintainers. Plan approval stays with vvaz.",
+    "ownerStatement": {
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25",
+      "channel": "T3 session for this task (agent-relayed; not an authenticated approval record)",
+      "authorizedMaintainers": [
+        "vvaz",
+        "gmarquesetr"
+      ],
+      "reviewRequirement": "No second-person review is required. Either authorized maintainer (vvaz or gmarquesetr) may push directly to main, merge pull requests, tag releases and deploy. A change pushed or merged by an authorized maintainer is the review of record."
+    },
+    "enforcedAfterOwnerDecision": {
+      "appliedAt": "2026-10-25",
+      "appliedBy": "vvaz (gh CLI, at owner request)",
+      "rulesets": [
+        {
+          "id": 25825665,
+          "target": "branch",
+          "refs": [
+            "~DEFAULT_BRANCH"
+          ],
+          "rules": [
+            "non_fast_forward",
+            "deletion"
+          ],
+          "bypass": []
+        },
+        {
+          "id": 25825666,
+          "target": "tag",
+          "refs": [
+            "refs/tags/v*"
+          ],
+          "rules": [
+            "update",
+            "deletion"
+          ],
+          "bypass": []
+        },
+        {
+          "id": 25825669,
+          "target": "tag",
+          "refs": [
+            "refs/tags/v*"
+          ],
+          "rules": [
+            "creation"
+          ],
+          "bypass": [
+            "RepositoryRole admin (vvaz, gmarquesetr)"
+          ]
+        }
+      ],
+      "actionsCanApprovePullRequestReviews": false,
+      "codeowners": "not added; no review is required",
+      "readmeReleaseProcess": "unchanged; direct push to main stays valid"
+    }
+  },
+  "ownerDecisions": [
+    "Sequence PR #1, this PR and PR #4 against the bound baseline: merging any of them moves gq-theme main past e1fee75 and requires a regenerated bundle.",
+    "Platform: merge gq-platform #251 and add maintainers [vvaz, gmarquesetr] to the gq-theme dispatch destination; merge #252 (intro wording); regenerate draft #253 once gq-theme main is final.",
+    "Regenerate the bundle with the revised bootstrap bytes and the Composer component, then approve it."
+  ],
+  "resolvedOwnerDecisions": [
+    {
+      "decision": "Authorized maintainers",
+      "answer": "vvaz and gmarquesetr",
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25"
+    },
+    {
+      "decision": "getquick-theme wording",
+      "answer": "remove 'legacy'",
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25"
+    },
+    {
+      "decision": "Review requirement",
+      "answer": "no required review; either maintainer may push, merge, release and deploy",
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25"
+    },
+    {
+      "decision": "README applicability",
+      "answer": "eeb301e → gq-theme 0.1.0 (v0.1.0, 90ab29d), WordPress theme and Composer package",
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25"
+    },
+    {
+      "decision": "Bootstrap",
+      "answer": "use the revised bootstrap (install, access warning, staff-access pointer)",
+      "statedBy": "vvaz",
+      "statedAt": "2026-10-25"
+    }
+  ]
+}
