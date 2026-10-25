@@ -41,7 +41,7 @@ WordPress layouts should configure their equivalent theme directory. Keep
 registry credentials in the site's existing Composer authentication setup,
 never in this public repository.
 
-This package is independent of the legacy `getquick/getquick-theme` package.
+This package is independent of the `getquick/getquick-theme` block theme.
 Installing it does not migrate or remove an existing theme automatically.
 
 ## Version
