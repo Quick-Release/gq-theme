@@ -39,7 +39,7 @@ export function checkTheme(directory) {
 
   assert.equal(header(stylesheet, "Theme Name"), "gq-theme");
   assert.equal(header(stylesheet, "Text Domain"), "gq-theme");
-  assert.equal(header(stylesheet, "Requires at least"), "7.0");
+  assert.equal(header(stylesheet, "Requires at least"), "7.1");
   assert.equal(header(stylesheet, "Requires PHP"), "8.4.1");
   assert.equal(header(stylesheet, "License"), "GNU General Public License v2.0 only");
   assert.ok(stylesheet.startsWith("/*"), "Theme headers must be in the initial CSS comment.");
@@ -48,7 +48,7 @@ export function checkTheme(directory) {
   assert.match(version, /^\d+\.\d+\.\d+$/, "Expected a three-part release version.");
   assert.equal(manifest.version, version, "package.json version must match style.css.");
   assert.ok(readme.includes(`Current version: **${version}**`), "README version must match style.css.");
-  assert.ok(readme.includes("**WordPress 7.0+**") && readme.includes("**PHP 8.4.1+**"), "README must document the supported minimums.");
+  assert.ok(readme.includes("**WordPress 7.1+**") && readme.includes("**PHP 8.4.1+**"), "README must document the supported minimums.");
   assert.ok(template.startsWith("<?php"), "Template must start with PHP, without a BOM.");
   assert.ok(!template.includes("?>"), "Do not add a closing PHP tag.");
   execFileSync("php", ["-l", join(directory, "index.php")], { stdio: "pipe" });

@@ -57,4 +57,4 @@ jobs:
           VERSION="${RELEASE_TAG#v}"
           gh release create "$RELEASE_TAG" "dist/gq-theme-${VERSION}.zip" \
             --verify-tag --title "$RELEASE_TAG" \
-            --notes "GETQUICK headless placeholder theme ${VERSION}. Requires WordPress 7.0+ and PHP 8.4.1+. Install the attached ZIP or getquick/gq-theme through the private GETQUICK Composer registry."
+            --notes "GETQUICK headless placeholder theme ${VERSION}. Requires WordPress 7.1+ (GETQUICK supports only the latest WordPress release) and PHP 8.4.1+. Install the attached ZIP or getquick/gq-theme through the private GETQUICK Composer registry."

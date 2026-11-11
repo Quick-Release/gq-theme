@@ -49,11 +49,14 @@ test("rejects missing or duplicate required headers", (t) => {
 
 test("rejects unsupported minimums and stale compatibility documentation", (t) => {
   const directory = fixture(t);
-  replace(directory, "style.css", "Requires at least: 7.0", "Requires at least: 6.0");
+  replace(directory, "style.css", "Requires at least: 7.1", "Requires at least: 7.0");
   assert.throws(() => checkTheme(directory));
   const stale = fixture(t);
   replace(stale, "README.md", "**PHP 8.4.1+**", "**PHP 8.3+**");
   assert.throws(() => checkTheme(stale), /supported minimums/);
+  const staleWordPress = fixture(t);
+  replace(staleWordPress, "README.md", "**WordPress 7.1+**", "**WordPress 7.0+**");
+  assert.throws(() => checkTheme(staleWordPress), /supported minimums/);
 });
 
 test("rejects template output and PHP syntax errors", (t) => {

@@ -9,9 +9,13 @@ asset enqueues, hooks, or dependencies.
 
 ## Install
 
-Requires **WordPress 7.0+** and **PHP 8.4.1+**, matching the GETQUICK platform
-support policy. These are supported minimums, not a claim of integration testing;
-`Tested up to` will be added only after testing against an actual WordPress release.
+Requires **WordPress 7.1+** and **PHP 8.4.1+**, matching the GETQUICK platform
+support policy: GETQUICK supports only the latest WordPress release (currently
+7.1.4). There is no older supported WordPress floor. `Requires at least` names
+the latest minor (7.1) rather than the patch so a site part-way through a patch
+upgrade is not blocked. This is not a claim of integration testing; `Tested up to`
+will be added only after testing against an actual WordPress release.
+The WordPress requirement is bumped whenever WordPress ships a release.
 
 Build the release ZIP using the commands below, then upload it in
 **Appearance → Themes → Add New → Upload Theme** and activate **gq-theme**.
@@ -110,7 +114,7 @@ a tag or replacing an asset. The private GETQUICK registry rebuilds hourly to
 pick up new releases, or an authorized registry operator can rebuild immediately.
 No private registry credentials are needed in this public repository.
 
-Before deployment, smoke-test activation on the supported WordPress/PHP versions
+Before deployment, smoke-test activation on the latest WordPress release (currently 7.1.4) with PHP 8.4.1+
 and verify blank frontend responses, admin access, and the REST/authentication
 routes used by `gq-site`. Local checks do not replace this integration test.
 
